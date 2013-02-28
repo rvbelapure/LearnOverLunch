@@ -1,7 +1,9 @@
 package mas.learnoverlunch.handlers;
 
+import mas.comm.ConnectionHandler;
 import mas.commons.Constants;
-import mas.learnoverlunch.ListViewActivity;
+import mas.learnoverlunch.HomeActivity;
+import mas.learnoverlunch.HomeScreenActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class LoginHandler implements OnClickListener {
@@ -41,16 +44,19 @@ public class LoginHandler implements OnClickListener {
 		
 		Log.d(Constants.TAG, local_uname+"::"+local_passwd);
 		
-		activity.startActivity(new Intent(context, ListViewActivity.class));
-		
-		/*String reply = ConnectionHandler.sendString(Constants.AUTH_URL, local_uname+"::"+local_passwd);
-		if (reply.equals("yes")) {
-			activity.startActivity(new Intent(context, HomeActivity.class));	
-		} else if(reply.equals("no")) {
-			Toast.makeText(context, "Login failed!", Toast.LENGTH_LONG).show();
-		} else {
-			Toast.makeText(context, reply, Toast.LENGTH_LONG).show();
-		}*/
+		if(Constants.BYPASS)
+			activity.startActivity(new Intent(context, HomeScreenActivity.class));
+		else
+		{
+			String reply = ConnectionHandler.sendString(Constants.AUTH_URL, local_uname+"::"+local_passwd);
+			if (reply.equals("yes")) {
+				activity.startActivity(new Intent(context, HomeScreenActivity.class));	
+			} else if(reply.equals("no")) {
+				Toast.makeText(context, "Login failed!", Toast.LENGTH_LONG).show();
+			} else {
+				Toast.makeText(context, reply, Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 	
 

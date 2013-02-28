@@ -19,16 +19,16 @@ public class EventActivity extends Activity {
 	    String going = "2";
 	    String capacity = "5";
 	    String dateandtime  = date + " " + time;
-	    TextView tv2 = (TextView) findViewById(R.id.textView2);
-	    tv2.setText(topic);
-	    TextView tv6 = (TextView) findViewById(R.id.textView6);
-	    tv6.setText(dateandtime);
-	    TextView tv4 = (TextView) findViewById(R.id.textView4);
-	    tv4.setText(venue);
-	    TextView tv3 = (TextView) findViewById(R.id.textView3);
-	    tv3.setText(going);
-	    TextView tv1 = (TextView) findViewById(R.id.textView1);
-	    tv1.setText(capacity);
+	    TextView tv5 = (TextView) findViewById(R.id.textView5);
+	    tv5.setText(topic);
+	    TextView tv7 = (TextView) findViewById(R.id.textView7);
+	    tv7.setText(dateandtime);
+	    TextView tv8 = (TextView) findViewById(R.id.textView8);
+	    tv8.setText(venue);
+	    TextView tv9 = (TextView) findViewById(R.id.textView9);
+	    tv9.setText(going);
+	    TextView tv10 = (TextView) findViewById(R.id.textView10);
+	    tv10.setText(capacity);
 	    
 	 }
 

@@ -18,41 +18,48 @@ public final class R {
     }
     public static final class id {
         public static final int ButtonSendFeedback=0x7f080005;
-        public static final int EditText01=0x7f080011;
+        public static final int EditText01=0x7f080017;
         public static final int TextViewTitle=0x7f080000;
-        public static final int button_login=0x7f080013;
-        public static final int button_logout=0x7f080010;
-        public static final int button_myevents=0x7f08000d;
-        public static final int button_myprofile=0x7f08000b;
-        public static final int button_newevent=0x7f08000c;
-        public static final int button_notifications=0x7f08000f;
-        public static final int button_signup=0x7f080014;
-        public static final int button_viewevents=0x7f08000e;
-        public static final int editText1=0x7f080012;
+        public static final int button_login=0x7f080019;
+        public static final int button_logout=0x7f080015;
+        public static final int button_myevents=0x7f080012;
+        public static final int button_myprofile=0x7f080010;
+        public static final int button_newevent=0x7f080011;
+        public static final int button_notifications=0x7f080014;
+        public static final int button_signup=0x7f08001a;
+        public static final int button_viewevents=0x7f080013;
+        public static final int editText1=0x7f080018;
         public static final int event_desc=0x7f080002;
         public static final int event_loc=0x7f080003;
         public static final int event_time=0x7f080004;
         public static final int event_title=0x7f080001;
-        public static final int label=0x7f08001a;
-        public static final int menu_settings=0x7f08001b;
-        public static final int signup_fname=0x7f080017;
-        public static final int signup_lname=0x7f080018;
-        public static final int signup_passwd=0x7f080016;
-        public static final int signup_submit=0x7f080019;
-        public static final int signup_uname=0x7f080015;
+        public static final int home_tv=0x7f080016;
+        public static final int label=0x7f080020;
+        public static final int menu_settings=0x7f080021;
+        public static final int signup_fname=0x7f08001d;
+        public static final int signup_lname=0x7f08001e;
+        public static final int signup_passwd=0x7f08001c;
+        public static final int signup_submit=0x7f08001f;
+        public static final int signup_uname=0x7f08001b;
         public static final int textView1=0x7f080006;
+        public static final int textView10=0x7f08000f;
         public static final int textView2=0x7f080008;
         public static final int textView3=0x7f080007;
         public static final int textView4=0x7f08000a;
+        public static final int textView5=0x7f08000b;
         public static final int textView6=0x7f080009;
+        public static final int textView7=0x7f08000c;
+        public static final int textView8=0x7f08000d;
+        public static final int textView9=0x7f08000e;
     }
     public static final class layout {
         public static final int activity_create_event=0x7f030000;
         public static final int activity_event=0x7f030001;
         public static final int activity_home=0x7f030002;
-        public static final int activity_login=0x7f030003;
-        public static final int activity_signup=0x7f030004;
-        public static final int list_item=0x7f030005;
+        public static final int activity_homescreen=0x7f030003;
+        public static final int activity_login=0x7f030004;
+        public static final int activity_signup=0x7f030005;
+        public static final int list_item=0x7f030006;
     }
     public static final class menu {
         public static final int activity_login=0x7f070000;

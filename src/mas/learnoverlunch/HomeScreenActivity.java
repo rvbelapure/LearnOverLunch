@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
  
-public class ListViewActivity extends ListActivity {
+public class HomeScreenActivity extends ListActivity {
 	
 	Activity activity;
 	Context context;
@@ -17,14 +17,13 @@ public class ListViewActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        String[] options = new String[] {"Create Event", "View Events"};
         activity = this;
         context = getApplicationContext();
-        
-        // storing string resources into Array
-        String[] theEvents = new String[] {"The Universe, 2/28, 1pm", "Python for Dummies, 2/28, 1pm", "Caricature Discussions, 2/29, 2pm"}; 
  
         // Binding resources Array to ListAdapter
-        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, theEvents));
+        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_homescreen, R.id.home_tv, options));
         
         //Button addButton = (Button) findViewById(R.id.button_add)
         //addButton.setOnClickListener (new View.OnClickListener() {
@@ -40,6 +39,10 @@ public class ListViewActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id)
     {
-    	activity.startActivity(new Intent(context, EventActivity.class));
+    	String item = (String) l.getItemAtPosition(position);
+    	if(item.equals("Create Event"))
+    		activity.startActivity(new Intent(context, AddEvent.class));
+    	else if(item.equals("View Events"))
+    		activity.startActivity(new Intent(context, ListViewActivity.class));
     }
 }

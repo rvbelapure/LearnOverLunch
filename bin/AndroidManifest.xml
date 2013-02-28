@@ -7,10 +7,11 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="10" />
-		<uses-permission android:name="android.permission.INTERNET"/>
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
- 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,19 +26,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity            
+        <activity
             android:name="mas.learnoverlunch.ListViewActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity            
+        <activity
             android:name="mas.learnoverlunch.SignupActivity"
             android:label="@string/text_signup" >
         </activity>
- 		<activity            
+        <activity
             android:name="mas.learnoverlunch.AddEvent"
             android:label="@string/create_event" >
         </activity>
- 
-        </application>
+        <activity
+            android:name="mas.learnoverlunch.HomeScreenActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="mas.learnoverlunch.EventActivity"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
 
 </manifest>
