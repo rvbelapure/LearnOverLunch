@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity" >
+
+    <Button
+        android:id="@+id/button_myprofile"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/button_newevent"
+        android:layout_below="@+id/button_myevents"
+        android:layout_marginTop="125dp"
+        android:text="@string/text_myprofile" />
+
+    <Button
+        android:id="@+id/button_newevent"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="46dp"
+        android:text="@string/text_newevent" />
+
+    <Button
+        android:id="@+id/button_myevents"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_newevent"
+        android:layout_marginLeft="37dp"
+        android:text="@string/text_myevents" />
+
+    <Button
+        android:id="@+id/button_viewevents"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_myevents"
+        android:layout_marginLeft="37dp"
+        android:text="@string/text_viewevents" />
+
+    <Button
+        android:id="@+id/button_notifications"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_viewevents"
+        android:layout_marginLeft="37dp"
+        android:text="@string/text_notifications" />
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/button_myprofile"
+        android:layout_below="@+id/button_myprofile"
+        android:text="@string/text_logout" />
+
+</RelativeLayout>

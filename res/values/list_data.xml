@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name = "listEvents">
+        <item>The Universe, 2/28, 1pm</item>
+        <item>Python for Dummies, 2/28, 1pm</item>
+        <item>Caricature Discussions, 2/29, 2pm</item>
+    </string-array>    
+</resources>

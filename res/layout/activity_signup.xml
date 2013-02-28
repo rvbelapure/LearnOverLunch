@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    tools:context=".SignupActivity" >
+
+    <EditText
+        android:id="@+id/signup_uname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ems="10" 
+        android:inputType="text"
+        android:text="@string/text_username">
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/signup_passwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/signup_uname"
+        android:ems="10"
+        android:inputType="textPassword" 
+        android:text="@string/text_passwd"/>
+
+    <EditText
+        android:id="@+id/signup_fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:inputType="text"
+        android:layout_below="@+id/signup_passwd"
+        android:ems="10"
+        android:text="@string/text_fname" />
+
+    <EditText
+        android:id="@+id/signup_lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:inputType="text"
+        android:layout_below="@+id/signup_fname"
+        android:ems="10" 
+        android:text="@string/text_lname"/>
+
+    <Button
+        android:id="@+id/signup_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/text_submit" />
+    
+</RelativeLayout>

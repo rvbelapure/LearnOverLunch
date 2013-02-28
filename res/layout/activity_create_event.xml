@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+
+    <TextView
+    android:id="@+id/TextViewTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/create_event"
+    android:textSize="10pt">
+	</TextView>
+    
+    <EditText
+        android:id="@+id/event_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_title"
+        android:inputType="text" >
+
+	</EditText>
+    
+    <EditText
+        android:id="@+id/event_desc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_desc"
+        android:inputType="textMultiLine" 
+        android:lines="5"  
+        >
+
+	</EditText>
+    
+    <EditText
+        android:id="@+id/event_loc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_loc"
+        android:inputType="text" >
+
+	</EditText>
+    
+    <EditText
+        android:id="@+id/event_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_time"
+        android:inputType="date" >
+	</EditText>
+	
+    <Button
+	    android:id="@+id/ButtonSendFeedback"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_create"
+	    android:onClick="sendFeedback"
+	    android:layout_width="fill_parent">
+	</Button>
+    
+    
+</LinearLayout>
+

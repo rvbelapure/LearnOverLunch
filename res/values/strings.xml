@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Learn Over Lunch</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="text_username">Username</string>
+    <string name="text_passwd">password</string>
+    <string name="text_login">Login</string>
+    <string name="text_signup">Signup</string>
+    <string name="text_myevents">My Events</string>
+    <string name="text_newevent">New Event</string>
+    <string name="text_viewevents">View Events</string>
+    <string name="text_notifications">Notifications</string>
+    <string name="text_myprofile">My Profile</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_logout1">Logout1</string>
+    <string name="create_event">Create Event</string>
+    <string name="user_id">User ID</string>
+    <string name="event_title">Event title</string>
+    <string name="event_desc">Event Description</string>
+    <string name="event_loc">Location</string>
+    <string name="event_time">Date and Time</string>
+    <string name="button_create">Create</string>
+    <string name="button_add">Add Event</string>
+    <string name="text_fname">First Name</string>
+    <string name="text_lname">Last Name</string>
+    <string name="text_submit">Submit</string>
+    <string name="event_topic">Talk about </string>
+    <string name="event_datentime">on</string>
+    <string name="event_location">Venue : </string>
+    <string name="event_capacity">Capacity : </string>
+    <string name="event_going">People Joining : </string>
+
+</resources>
