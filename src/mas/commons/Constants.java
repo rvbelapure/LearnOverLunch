@@ -10,7 +10,7 @@ public interface Constants {
 	String AUTH_URL = URL_PREFIX+"/userservice/auth";
 	String GET_MY_EVENTS_URL = URL_PREFIX+"/eventservice/get/event/byuser";
 	String SIGNUP_URL = URL_PREFIX + "/userservice/signup";
-	String GET_EVENTS_BY_CATEGORY = URL_PREFIX+"/eventservice/get/event/bycategory";
+	String GET_CATEGORIES = URL_PREFIX+"/categoryservice/get";
 	String TAG = "LEARN";
 	String ADD_EVENT = URL_PREFIX + "/eventservice/create";
 }

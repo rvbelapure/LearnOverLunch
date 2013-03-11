@@ -26,7 +26,7 @@ public class HomeScreenActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        String[] options = new String[] {"Create Event", "View My Events", "View By Category"};
+        String[] options = new String[] {"Create Event", "View My Events", "View Categories"};
         activity = this;
         context = getApplicationContext();
  
@@ -74,10 +74,11 @@ public class HomeScreenActivity extends ListActivity {
     		}
     		
     	}
-    	else if(item.equals("View By Category"))
+    	else if(item.equals("View Categories"))
     	{
+    		String category = ""; //Null string
     		String reply = null;
-    		reply = ConnectionHandler.sendString(Constants.GET_EVENTS_BY_CATEGORY, masGlobal.globalUname);
+    		reply = ConnectionHandler.sendString(Constants.GET_CATEGORIES, category); //need not pass any data so passing a null string
     		try {
 				masGlobal.globalMyEvents = new JSONArray(reply);
 			} catch (JSONException e) {
