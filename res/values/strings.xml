@@ -31,5 +31,18 @@
     <string name="event_location">Venue : </string>
     <string name="event_capacity">Capacity : </string>
     <string name="event_going">People Joining : </string>
-
-</resources>
+	<string name="button_event_time">Event Time</string>
+    <string name="button_event_date">Event Date</string>
+    <string name="event_max_people">Max capacity</string>
+    <string-array name="event_categories">
+        <item>Category1</item>
+        <item>Category2</item>
+        <item>Category3</item>
+        <item>Category4</item>
+        <item>Category5</item>
+        <item>Category6</item>
+        <item>Category7</item>
+        <item>Category8</item>
+    </string-array>
+    
+    </resources>

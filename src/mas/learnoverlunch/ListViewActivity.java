@@ -1,12 +1,11 @@
 package mas.learnoverlunch;
  
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+
+import mas.commons.masGlobal;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import mas.commons.masGlobal;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -42,7 +41,10 @@ public class ListViewActivity extends ListActivity {
 				e.printStackTrace();
 			}
         	try {
-				theEvents[p] = temp.getString("event_date")+", "+temp.getString("topic_name");
+        		
+        		Date d;
+        		d = new Date(temp.getString("event_date"));
+				theEvents[p] = d.getMonth()+"/"+d.getDate()+", "+temp.getString("topic_name");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

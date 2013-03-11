@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/event_desc"
         android:inputType="textMultiLine" 
-        android:lines="5"  
+        android:lines="3"  
         >
 
 	</EditText>
@@ -39,19 +39,39 @@
         android:layout_height="wrap_content"
         android:hint="@string/event_loc"
         android:inputType="text" >
+	</EditText>
 
-	</EditText>
-    
     <EditText
-        android:id="@+id/event_time"
-        android:layout_width="fill_parent"
+        android:id="@+id/event_max_people"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/event_time"
-        android:inputType="date" >
-	</EditText>
+        android:ems="10"
+        android:hint="@string/event_max_people"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/events_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    	
+    <Button
+	    android:id="@+id/event_date_button"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_event_date"
+	    android:onClick="showDatePickerDialog"
+	    android:layout_width="fill_parent">
+	</Button>
 	
     <Button
-	    android:id="@+id/ButtonSendFeedback"
+	    android:id="@+id/event_time_button"
+	    android:layout_height="wrap_content"
+	    android:text="@string/button_event_time"
+	    android:onClick="showTimePickerDialog"
+	    android:layout_width="fill_parent">
+	</Button>
+    
+    <Button
+	    android:id="@+id/event_add_button"
 	    android:layout_height="wrap_content"
 	    android:text="@string/button_create"
 	    android:onClick="sendFeedback"

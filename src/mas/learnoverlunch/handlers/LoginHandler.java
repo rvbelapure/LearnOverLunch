@@ -12,6 +12,7 @@ import mas.learnoverlunch.HomeScreenActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -58,6 +59,9 @@ public class LoginHandler implements OnClickListener {
 				//adding username to globalUname which will be used later
 				masGlobal.globalUname = local_uname; 
 				activity.startActivity(new Intent(context, HomeScreenActivity.class));	
+				Intent homeIntent = new Intent(context, HomeScreenActivity.class);
+				Bundle b = homeIntent.getExtras();
+				activity.startActivity (homeIntent);	
 			} else if(reply.equals("no")) {
 				Toast.makeText(context, "Login failed!", Toast.LENGTH_LONG).show();
 			} else {
