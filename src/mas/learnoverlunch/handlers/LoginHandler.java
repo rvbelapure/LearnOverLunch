@@ -1,7 +1,12 @@
 package mas.learnoverlunch.handlers;
 
+import java.util.Vector;
+
+import org.json.JSONArray;
+
 import mas.comm.ConnectionHandler;
 import mas.commons.Constants;
+import mas.commons.masGlobal;
 import mas.learnoverlunch.HomeActivity;
 import mas.learnoverlunch.HomeScreenActivity;
 import android.app.Activity;
@@ -50,6 +55,8 @@ public class LoginHandler implements OnClickListener {
 		{
 			String reply = ConnectionHandler.sendString(Constants.AUTH_URL, local_uname+"::"+local_passwd);
 			if (reply.equals("yes")) {
+				//adding username to globalUname which will be used later
+				masGlobal.globalUname = local_uname; 
 				activity.startActivity(new Intent(context, HomeScreenActivity.class));	
 			} else if(reply.equals("no")) {
 				Toast.makeText(context, "Login failed!", Toast.LENGTH_LONG).show();
