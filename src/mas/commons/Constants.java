@@ -5,7 +5,7 @@ public interface Constants {
 	boolean BYPASS = false;
 	String SERVER_ERROR = "Server not reachable!";
 	
-	String SERVER_IP = "192.168.1.6";
+	String SERVER_IP = "128.61.34.140";
 	String URL_PREFIX = "http://"+SERVER_IP+":8080/LearnOverLunchService/services";
 	
 	String SIGNUP_URL = URL_PREFIX + "/userservice/signup";

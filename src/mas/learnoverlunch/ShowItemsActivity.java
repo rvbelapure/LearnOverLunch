@@ -24,6 +24,7 @@ public class ShowItemsActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+//		setContentView(android.R.id.list);
 		activity = this;
 		context = getApplicationContext();
 		this.setListAdapter(new ArrayAdapter<String>(this
