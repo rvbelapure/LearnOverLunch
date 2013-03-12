@@ -44,6 +44,8 @@ public class HomeScreenActivity extends ListActivity {
 		
 		if (item.equals("Create Event"))
 			activity.startActivity(new Intent(context, AddEvent.class));
+			// Testing launch for feedback rating bar
+			//activity.startActivity(new Intent(context, EnterFeedback.class));
 
 		
 		else if (item.equals("View My Events")) {

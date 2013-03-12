@@ -50,6 +50,11 @@
             android:name="mas.learnoverlunch.ShowItemsActivity"
             android:label="Choose an option" >
         </activity>
+        <activity
+            android:name="mas.learnoverlunch.EnterFeedback"
+            android:label="Leave Feedback" 			
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
     </application>
 
 </manifest>
