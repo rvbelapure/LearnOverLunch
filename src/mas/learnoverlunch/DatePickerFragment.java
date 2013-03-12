@@ -1,9 +1,7 @@
 package mas.learnoverlunch;
 
 import java.util.Calendar;
-import java.util.Date;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;

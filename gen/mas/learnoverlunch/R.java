@@ -38,8 +38,9 @@ public final class R {
         public static final int event_title=0x7f080001;
         public static final int events_spinner=0x7f080005;
         public static final int home_tv=0x7f080019;
-        public static final int label=0x7f080023;
-        public static final int menu_settings=0x7f080024;
+        public static final int items_textview=0x7f080023;
+        public static final int label=0x7f080024;
+        public static final int menu_settings=0x7f080025;
         public static final int signup_fname=0x7f080020;
         public static final int signup_lname=0x7f080021;
         public static final int signup_passwd=0x7f08001f;
@@ -63,7 +64,8 @@ public final class R {
         public static final int activity_homescreen=0x7f030003;
         public static final int activity_login=0x7f030004;
         public static final int activity_signup=0x7f030005;
-        public static final int list_item=0x7f030006;
+        public static final int itemized_list_activity=0x7f030006;
+        public static final int list_item=0x7f030007;
     }
     public static final class menu {
         public static final int activity_login=0x7f070000;
