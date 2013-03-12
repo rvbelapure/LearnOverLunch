@@ -28,7 +28,7 @@ public class HomeScreenActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 
 		String[] options = new String[] { "Create Event", "View My Events",
-				"View Events by Categories", "View Events by Places" };
+				"View Events by Categories", "View Events by Places", "Feedback" };
 		activity = this;
 		context = getApplicationContext();
 
@@ -89,6 +89,8 @@ public class HomeScreenActivity extends ListActivity {
 				e.printStackTrace();
 			}
 			activity.startActivity(new Intent(context, ShowItemsActivity.class));
+		
+		
 		} else if(item.equals("View Events by Places"))
 		{
 			masGlobal.itemOnclickActionUrl = Constants.GET_EVENT_BY_LOCATION_URL;
@@ -112,6 +114,30 @@ public class HomeScreenActivity extends ListActivity {
 				e.printStackTrace();
 			}
 			activity.startActivity(new Intent(context, ShowItemsActivity.class));
+		
+		
+		} else if(item.equals("Feedback"))
+		{
+			int eventid = 0;		// TODO : Hardcoded here. It will be passed by event display screen.
+			String reply = ConnectionHandler.sendString(Constants.GET_EVENT_MEMBERS_URL, new String(Integer.toString(eventid)));
+			JSONArray arr = new JSONArray();
+			try {
+				arr = new JSONArray(reply);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			masGlobal.userList = new String[arr.length()];
+			masGlobal.isFeedbackScreen = true;
+			try {
+				for(int i = 0 ; i < arr.length() ; i++)
+				{
+					JSONObject o = arr.getJSONObject(i);
+					masGlobal.userList[i] = o.getString("fname") + " " + o.getString("lname") + ":" + o.getDouble("rating");
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			activity.startActivity(new Intent(context, ListEventUsers.class));
 		}
 	}
 }

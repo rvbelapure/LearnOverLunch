@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class HomeActivity extends Activity {
 
+	/* XXX THIS CLASS IS DEPRECATED. USE HomeScreenActivity Instead */ 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);

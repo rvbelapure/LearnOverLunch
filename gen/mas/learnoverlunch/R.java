@@ -38,12 +38,12 @@ public final class R {
         public static final int event_title=0x7f080001;
         public static final int events_spinner=0x7f080005;
         public static final int home_tv=0x7f080019;
-        public static final int items_textview=0x7f080026;
-        public static final int label=0x7f080027;
-        public static final int menu_settings=0x7f080028;
-        public static final int reviewStars=0x7f080023;
-        public static final int reviewWriteAccept=0x7f080024;
-        public static final int reviewWriteCancel=0x7f080025;
+        public static final int items_textview=0x7f080027;
+        public static final int label=0x7f080028;
+        public static final int menu_settings=0x7f080029;
+        public static final int reviewStars=0x7f080024;
+        public static final int reviewWriteAccept=0x7f080025;
+        public static final int reviewWriteCancel=0x7f080026;
         public static final int signup_fname=0x7f080020;
         public static final int signup_lname=0x7f080021;
         public static final int signup_passwd=0x7f08001f;
@@ -59,6 +59,7 @@ public final class R {
         public static final int textView7=0x7f08000f;
         public static final int textView8=0x7f080010;
         public static final int textView9=0x7f080011;
+        public static final int users_tv=0x7f080023;
     }
     public static final class layout {
         public static final int activity_create_event=0x7f030000;
@@ -67,9 +68,10 @@ public final class R {
         public static final int activity_homescreen=0x7f030003;
         public static final int activity_login=0x7f030004;
         public static final int activity_signup=0x7f030005;
-        public static final int feedback=0x7f030006;
-        public static final int itemized_list_activity=0x7f030007;
-        public static final int list_item=0x7f030008;
+        public static final int activity_view_users=0x7f030006;
+        public static final int feedback=0x7f030007;
+        public static final int itemized_list_activity=0x7f030008;
+        public static final int list_item=0x7f030009;
     }
     public static final class menu {
         public static final int activity_login=0x7f070000;
