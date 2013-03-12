@@ -74,6 +74,9 @@ public class ListViewActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id)
     {
-    	activity.startActivity(new Intent(context, EventActivity.class));
+    	Intent eventIntent = new Intent(context, EventActivity.class);
+    	Bundle extras = eventIntent.getExtras();
+    	extras.putInt("global_event_index", position);
+    	activity.startActivity(eventIntent);
     }
 }
