@@ -4,8 +4,10 @@ import java.util.Date;
 
 import mas.comm.ConnectionHandler;
 import mas.commons.Constants;
+import mas.commons.masGlobal;
 import mas.learnoverlunch.handlers.TextHandler;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,10 +43,30 @@ public class AddEvent extends FragmentActivity {
         title.setOnClickListener(new TextHandler());
         
         final Spinner spinner = (Spinner) findViewById(R.id.events_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-        R.array.event_categories, android.R.layout.simple_spinner_item);
+        String reply = ConnectionHandler.sendString(Constants.GET_CATEGORIES, "dummyarg");
+        JSONArray arr = new JSONArray();
+        try {
+			arr = new JSONArray(reply);
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        String categories [] = new String [arr.length()];
+        try {
+			for(int i = 0 ; i < arr.length() ; i++)
+			{
+				JSONObject o = arr.getJSONObject(i);
+				categories[i] = o.getString("cat_name");
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(context, android.R.layout.simple_spinner_dropdown_item, categories);
+/*        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        R.array.event_categories, android.R.layout.simple_spinner_item); */
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         
@@ -72,7 +94,7 @@ public class AddEvent extends FragmentActivity {
 					json.put("topic_name", title.getText().toString());
 					json.put("topic_category", category.toString());
 					json.put("max_allowed_members", Integer.parseInt(count.getText().toString()));
-					json.put("username", "abhi");
+					json.put("username", masGlobal.globalUname);
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
