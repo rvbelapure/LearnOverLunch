@@ -1,5 +1,7 @@
 package mas.learnoverlunch;
 
+import java.text.DecimalFormat;
+
 import mas.comm.ConnectionHandler;
 import mas.commons.Constants;
 import mas.commons.masGlobal;
@@ -118,7 +120,7 @@ public class HomeScreenActivity extends ListActivity {
 		
 		} else if(item.equals("Feedback"))
 		{
-			int eventid = 0;		// TODO : Hardcoded here. It will be passed by event display screen.
+			int eventid = 1;		// TODO : Hardcoded here. It will be passed by event display screen.
 			String reply = ConnectionHandler.sendString(Constants.GET_EVENT_MEMBERS_URL, new String(Integer.toString(eventid)));
 			JSONArray arr = new JSONArray();
 			try {
@@ -128,11 +130,12 @@ public class HomeScreenActivity extends ListActivity {
 			}
 			masGlobal.userList = new String[arr.length()];
 			masGlobal.isFeedbackScreen = true;
+			DecimalFormat df = new DecimalFormat("0.0");
 			try {
 				for(int i = 0 ; i < arr.length() ; i++)
 				{
 					JSONObject o = arr.getJSONObject(i);
-					masGlobal.userList[i] = o.getString("fname") + " " + o.getString("lname") + ":" + o.getDouble("rating");
+					masGlobal.userList[i] = o.getString("fname") + " " + o.getString("lname") + ":" + df.format(o.getDouble("rating"));
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();

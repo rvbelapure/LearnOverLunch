@@ -16,7 +16,7 @@ public class EventActivity extends Activity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_event);
 	    
-	    Intent mIntent = new Intent(this, EventActivity.class);
+	    Intent mIntent = this.getIntent();
 	    Bundle extras = mIntent.getExtras();
 	    int value = extras.getInt("global_event_index", -1);
 	    
