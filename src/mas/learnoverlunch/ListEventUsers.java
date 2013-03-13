@@ -26,7 +26,7 @@ public class ListEventUsers extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		/* Do nothing if the screen is not fedback screen */
+		/* Do nothing if the screen is not feedback screen */
 		if(!masGlobal.isFeedbackScreen)	
 			return;
 		String selected = masGlobal.userList[position];

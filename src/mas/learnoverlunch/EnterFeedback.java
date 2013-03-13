@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,13 +34,7 @@ public class EnterFeedback extends Activity implements OnClickListener{
 	    b = this.getIntent().getExtras();
 	    
 	    bar = (RatingBar) findViewById(R.id.reviewStars);
-	    bar.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				rating = bar.getRating();				
-			}
-		});
+	    bar.setOnTouchListener(new RatingBarTouchHandler());
 	    Button submit = (Button) findViewById(R.id.reviewWriteAccept);
 	    Button cancel = (Button) findViewById(R.id.reviewWriteCancel);
 	    
@@ -73,4 +68,15 @@ public class EnterFeedback extends Activity implements OnClickListener{
 		}
 	}
 
+	class RatingBarTouchHandler implements View.OnTouchListener
+	{
+
+		@Override
+		public boolean onTouch(View v, MotionEvent event) {
+			RatingBar b = (RatingBar) v;
+			rating = b.getRating();
+			return false;
+		}
+		
+	}
 }
