@@ -1,5 +1,7 @@
 package mas.learnoverlunch;
 
+import java.util.Calendar;
+
 import mas.learnoverlunch.handlers.LoginHandler;
 import mas.learnoverlunch.handlers.TextHandler;
 import android.app.Activity;
@@ -22,7 +24,7 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         context = getApplicationContext();
         activity = this;
-        
+           
         EditText uname = (EditText) findViewById(R.id.EditText01);
         uname.setOnClickListener(new TextHandler());
         EditText passwd = (EditText) findViewById(R.id.editText1);
@@ -43,7 +45,19 @@ public class LoginActivity extends Activity {
         
     }
 
-    @Override
+    private void calendar_event() {
+    	Calendar cal = Calendar.getInstance();              
+    	Intent intent = new Intent(Intent.ACTION_EDIT);
+    	intent.setType("vnd.android.cursor.item/event");
+    	intent.putExtra("beginTime", cal.getTimeInMillis());
+    	intent.putExtra("allDay", true);
+    	intent.putExtra("rrule", "FREQ=YEARLY");
+    	intent.putExtra("endTime", cal.getTimeInMillis()+60*60*1000);
+    	intent.putExtra("title", "A Test Event from android app");
+    	startActivity(intent);
+	}
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_login, menu);
