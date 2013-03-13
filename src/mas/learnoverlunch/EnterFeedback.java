@@ -7,7 +7,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +45,9 @@ public class EnterFeedback extends Activity implements OnClickListener{
 	    
 	    submit.setTag("submit");
 	    cancel.setTag("cancel");
+	    
+	    submit.setOnClickListener(this);
+	    cancel.setOnClickListener(this);
 	}
 
 	@Override
@@ -56,8 +58,8 @@ public class EnterFeedback extends Activity implements OnClickListener{
 			try {
 				o.put("fname", b.getString("fname"));
 				o.put("lname", b.getString("lname"));
-				o.put("prev_rating", b.getFloat("prev_rating"));
-				o.put("curr_rating", rating);
+				o.put("prev_rating", Float.toString((b.getFloat("prev_rating"))));
+				o.put("curr_rating", Float.toString(rating));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

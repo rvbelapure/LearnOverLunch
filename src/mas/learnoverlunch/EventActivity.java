@@ -28,20 +28,22 @@ public class EventActivity extends ListActivity {
 	private static final int JOIN = 0;
     private static final int FEEDBACK = 1;
     Bundle extras;
+    JSONObject eventObject;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_event);
+
 	    activity=this;
 	    context = getApplicationContext();
 	    Intent mIntent = this.getIntent();
 	    extras = mIntent.getExtras();
 	    int value = extras.getInt("global_event_index", -1);
 	    
-	    JSONObject temp = new JSONObject();
+	    eventObject = new JSONObject();
 	    try {
-			temp = masGlobal.globalMyEvents.getJSONObject(value);
+			eventObject = masGlobal.globalMyEvents.getJSONObject(value);
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -50,14 +52,14 @@ public class EventActivity extends ListActivity {
 	    //change hardcoding to fetching value from server and change datatype
 	    String topic=null;
 		try {
-			topic = " TOPIC : " + temp.getString("topic_name");
+			topic = " TOPIC : " + eventObject.getString("topic_name");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String dateandtime=null; 
 		try {
-			dateandtime  = " DATE n TIME : " + temp.getString("event_date");
+			dateandtime  = " DATE n TIME : " + eventObject.getString("event_date");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,21 +67,21 @@ public class EventActivity extends ListActivity {
 		
 	    String venue=null;
 		try {
-			venue = " VENUE : " + temp.getString("event_place");
+			venue = " VENUE : " + eventObject.getString("event_place");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    String going=null;
 		try {
-			going = " PEOPLE JOINING : " + temp.getString("event_members");
+			going = " PEOPLE JOINING : " + eventObject.getString("event_members");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    String capacity=null;
 		try {
-			capacity = " CAPACITY : " + temp.getString("max_allowed_members");
+			capacity = " CAPACITY : " + eventObject.getString("max_allowed_members");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,12 +121,11 @@ public class EventActivity extends ListActivity {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				ConnectionHandler.sendString(Constants.JOIN_EVENT, "todo");
+				ConnectionHandler.sendString(Constants.JOIN_EVENT, o.toString());
 				break;
            case(FEEDBACK):
-        	   JSONObject k = new JSONObject();
 	           int eventid = extras.getInt("event_id");
-				String reply = ConnectionHandler.sendString(Constants.GET_EVENT_MEMBERS_URL, new String(Integer.toString(eventid)));
+				String reply = ConnectionHandler.sendString(Constants.GET_EVENT_MEMBERS_URL, Integer.toString(eventid));
 				JSONArray arr = new JSONArray();
 				try {
 					arr = new JSONArray(reply);
@@ -144,14 +145,6 @@ public class EventActivity extends ListActivity {
 					e.printStackTrace();
 				}
 				activity.startActivity(new Intent(context, ListEventUsers.class));
-
-				try {
-					k.put("uname", extras.getString("uname"));
-					k.put("event_id", extras.getString("event_id"));
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-        	   ConnectionHandler.sendString(Constants.GIVE_FEEDBACK, "todo");
                break; 
          } 
         return false; 

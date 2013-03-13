@@ -5,7 +5,7 @@ public interface Constants {
 	boolean BYPASS = false;
 	String SERVER_ERROR = "Server not reachable!";
 	
-	String SERVER_IP = "128.61.34.140";
+	String SERVER_IP = "143.215.96.111";
 	String URL_PREFIX = "http://"+SERVER_IP+":8080/LearnOverLunchService/services";
 	
 	String SIGNUP_URL = URL_PREFIX + "/userservice/signup";
@@ -17,9 +17,9 @@ public interface Constants {
 	String GET_CATEGORIES = URL_PREFIX+"/categoryservice/get";
 	String GET_LOCATIONS_URL = URL_PREFIX+"/locationservice/get";
 	String GET_EVENT_MEMBERS_URL = URL_PREFIX + "/eventservice/get/members";
-	String REPORT_RATING_URL = URL_PREFIX + "/userservice/signup";
 	String JOIN_EVENT = URL_PREFIX + "/eventservice/eventjoin";
-	String GIVE_FEEDBACK = URL_PREFIX + "/userservice/rateuser";
+	String REPORT_RATING_URL = URL_PREFIX + "/userservice/rateuser";
+
 	
 	String TAG = "LEARN";
 }
