@@ -19,6 +19,7 @@ public interface Constants {
 	String GET_EVENT_MEMBERS_URL = URL_PREFIX + "/eventservice/get/members";
 	String JOIN_EVENT = URL_PREFIX + "/eventservice/eventjoin";
 	String REPORT_RATING_URL = URL_PREFIX + "/userservice/rateuser";
+	String ISMEMBER_URL = URL_PREFIX + "/eventservice/isMember";
 
 	
 	String TAG = "LEARN";
