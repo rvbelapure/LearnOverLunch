@@ -24,7 +24,7 @@ public class EventActivity extends ListActivity {
 	
 	Activity activity;
 	Context context;
-	String[] theEvents = new String[5];
+	String[] theEvents;
 	private static final int JOIN = 0;
     private static final int FEEDBACK = 1;
     Bundle extras;
@@ -33,7 +33,7 @@ public class EventActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_event);
+//	    setContentView(R.layout.activity_event);
 
 	    activity=this;
 	    context = getApplicationContext();
@@ -50,14 +50,14 @@ public class EventActivity extends ListActivity {
 			e.printStackTrace();
 		}
 	    //change hardcoding to fetching value from server and change datatype
-	    String topic=null;
+	    String topic="";
 		try {
 			topic = " TOPIC : " + eventObject.getString("topic_name");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String dateandtime=null; 
+		String dateandtime=""; 
 		try {
 			dateandtime  = " DATE n TIME : " + eventObject.getString("event_date");
 		} catch (JSONException e) {
@@ -65,38 +65,33 @@ public class EventActivity extends ListActivity {
 			e.printStackTrace();
 		}
 		
-	    String venue=null;
+	    String venue="";
 		try {
 			venue = " VENUE : " + eventObject.getString("event_place");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    String going=null;
+	    
+	    String capacity="";
 		try {
-			going = " PEOPLE JOINING : " + eventObject.getString("event_members");
+			capacity = " CAPACITY : " + eventObject.getInt("max_allowed_members");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    String capacity=null;
-		try {
-			capacity = " CAPACITY : " + eventObject.getString("max_allowed_members");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    theEvents = new String[10];
+	    for(int i = 0 ; i < theEvents.length ; i++)
+	    	theEvents[i] = "";
 	    
 		theEvents[0]=topic;
 		theEvents[1]=dateandtime;
 		theEvents[2]=venue;
-		theEvents[3]=going;
-		theEvents[4]=capacity;
+		theEvents[3]=capacity;
 		
-		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, theEvents));
-
-	    
-	    
+		System.out.println(theEvents);
+		
+		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_event, R.id.event_tv, theEvents));	    
 	 }
 
 	@Override

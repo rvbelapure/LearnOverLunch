@@ -36,11 +36,12 @@ public final class R {
         public static final int event_max_people=0x7f080004;
         public static final int event_time_button=0x7f080007;
         public static final int event_title=0x7f080001;
+        public static final int event_tv=0x7f080009;
         public static final int events_spinner=0x7f080005;
         public static final int home_tv=0x7f080010;
         public static final int items_textview=0x7f08001e;
-        public static final int label=0x7f080009;
-        public static final int menu_settings=0x7f08001f;
+        public static final int label=0x7f08001f;
+        public static final int menu_settings=0x7f080020;
         public static final int reviewStars=0x7f08001b;
         public static final int reviewWriteAccept=0x7f08001c;
         public static final int reviewWriteCancel=0x7f08001d;
