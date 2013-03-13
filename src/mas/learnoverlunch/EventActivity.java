@@ -1,24 +1,26 @@
 package mas.learnoverlunch;
 
 import java.text.DecimalFormat;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import org.json.JSONObject;
+import java.util.Calendar;
+import java.util.Date;
 
 import mas.comm.ConnectionHandler;
 import mas.commons.Constants;
 import mas.commons.masGlobal;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
-import android.view.MenuItem;
 
 public class EventActivity extends ListActivity {
 
@@ -27,6 +29,7 @@ public class EventActivity extends ListActivity {
 	String[] theEvents;
 	private static final int JOIN = 0;
 	private static final int FEEDBACK = 1;
+	private static final int VIEW_MEMBERS = 2;
 	Bundle extras;
 	JSONObject eventObject;
 
@@ -114,6 +117,7 @@ public class EventActivity extends ListActivity {
 
 		menu.add(0, JOIN, 0, "Join");
 		menu.add(0, FEEDBACK, 1, "Rate");
+		menu.add(0, VIEW_MEMBERS, 2, "View Members");
 
 		return true;
 	}
@@ -130,9 +134,21 @@ public class EventActivity extends ListActivity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			String reply1 = ConnectionHandler.sendString(Constants.JOIN_EVENT, o.toString());
-			System.out.println(reply1);
+			String oldreply = ConnectionHandler.sendString(Constants.ISMEMBER_URL, o.toString());
+			
+			String reply1 = ConnectionHandler.sendString(Constants.JOIN_EVENT,
+					o.toString());
+			System.out.println(oldreply);
+			if (oldreply.equals("no")) {
+				try {
+					calendar_event();
+				} catch (JSONException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			}
 			Toast.makeText(context, reply1, Toast.LENGTH_LONG).show();
+
 			break;
 		case (FEEDBACK):
 			int eventid = 0;
@@ -142,7 +158,8 @@ public class EventActivity extends ListActivity {
 			} catch (JSONException e1) {
 				e1.printStackTrace();
 				return true;
-			};
+			}
+			;
 
 			String reply = ConnectionHandler.sendString(
 					Constants.GET_EVENT_MEMBERS_URL, Integer.toString(eventid));
@@ -167,8 +184,59 @@ public class EventActivity extends ListActivity {
 			}
 			activity.startActivity(new Intent(context, ListEventUsers.class));
 			break;
+		case (VIEW_MEMBERS):
+			int eventid2 = 0;
+
+			try {
+				eventid2 = eventObject.getInt("event_id");
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+				return true;
+			}
+			;
+
+			String reply2 = ConnectionHandler
+					.sendString(Constants.GET_EVENT_MEMBERS_URL,
+							Integer.toString(eventid2));
+			JSONArray arr2 = new JSONArray();
+			try {
+				arr2 = new JSONArray(reply2);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			masGlobal.userList = new String[arr2.length()];
+			masGlobal.isFeedbackScreen = false;
+			try {
+				DecimalFormat df = new DecimalFormat("0.0");
+				for (int i = 0; i < arr2.length(); i++) {
+					JSONObject m = arr2.getJSONObject(i);
+					masGlobal.userList[i] = m.getString("fname") + " "
+							+ m.getString("lname") + ":"
+							+ df.format(m.getDouble("rating"));
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			activity.startActivity(new Intent(context, ListEventUsers.class));
+
+			break;
 		}
 		return false;
+	}
+
+	private void calendar_event() throws JSONException {
+
+		Date d = new Date(eventObject.getString("event_date"));
+
+		// Calendar cal = Calendar.getInstance();
+		Intent intent = new Intent(Intent.ACTION_EDIT);
+		intent.setType("vnd.android.cursor.item/event");
+		intent.putExtra("beginTime", d.getTime());
+		intent.putExtra("allDay", false);
+		intent.putExtra("endTime", d.getTime() + 60 * 60 * 1000);
+		intent.putExtra("title", eventObject.getString("topic_name"));
+		intent.putExtra("eventLocation", eventObject.getString("event_place"));
+		startActivity(intent);
 	}
 
 	public EventActivity() {
