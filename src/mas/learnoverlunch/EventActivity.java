@@ -1,7 +1,6 @@
 package mas.learnoverlunch;
 
 import java.text.DecimalFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import mas.comm.ConnectionHandler;

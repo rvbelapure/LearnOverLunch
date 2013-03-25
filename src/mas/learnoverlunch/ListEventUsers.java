@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ListEventUsers extends ListActivity {
 
@@ -29,8 +30,18 @@ public class ListEventUsers extends ListActivity {
 		/* Do nothing if the screen is not feedback screen */
 		if(!masGlobal.isFeedbackScreen)	
 			return;
+		
 		String selected = masGlobal.userList[position];
 		String parts[] =  selected.split(":");
+		
+		System.out.println("Selected = " + parts[0]);
+		System.out.println("Self name = " + masGlobal.globalFullName);
+		if(parts[0].equals(masGlobal.globalFullName))
+		{
+			System.out.println("Stop user from rating himself..");
+			Toast.makeText(context, "You can not rate yourself!!", Toast.LENGTH_LONG).show();
+			return;
+		}
 		String names[] = parts[0].split(" ");
 		String fname = names[0];
 		String lname = names[1];

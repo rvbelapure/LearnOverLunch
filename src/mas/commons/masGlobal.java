@@ -9,6 +9,7 @@ public class masGlobal {
 	public static String itemOnclickActionUrl;
 	
 	public static String globalUname;
+	public static String globalFullName;
 	
 	public static String [] userList;
 	public static boolean isFeedbackScreen;

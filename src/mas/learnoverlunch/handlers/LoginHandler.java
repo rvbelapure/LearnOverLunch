@@ -52,7 +52,8 @@ public class LoginHandler implements OnClickListener {
 			if (reply.equals("yes")) {
 				//adding username to globalUname which will be used later
 				masGlobal.globalUname = local_uname; 
-				activity.startActivity(new Intent(context, HomeScreenActivity.class));		
+				activity.startActivity(new Intent(context, HomeScreenActivity.class));	
+				masGlobal.globalFullName = ConnectionHandler.sendString(Constants.NAME_URL, masGlobal.globalUname);
 			} else if(reply.equals("no")) {
 				Toast.makeText(context, "Login failed!", Toast.LENGTH_LONG).show();
 			} else {
