@@ -31,6 +31,7 @@ public class EventActivity extends ListActivity {
 	private static final int VIEW_MEMBERS = 2;
 	Bundle extras;
 	JSONObject eventObject;
+	int value;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class EventActivity extends ListActivity {
 		context = getApplicationContext();
 		Intent mIntent = this.getIntent();
 		extras = mIntent.getExtras();
-		int value = extras.getInt("global_event_index", -1);
+		value = extras.getInt("global_event_index", -1);
 
 		eventObject = new JSONObject();
 		try {
@@ -181,7 +182,13 @@ public class EventActivity extends ListActivity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			activity.startActivity(new Intent(context, ListEventUsers.class));
+			
+			Intent eventIntent = new Intent(context, ListEventUsers.class);
+	    	Bundle extras = new Bundle();
+	    	extras.putInt("global_event_index", value);
+	    	eventIntent.putExtras(extras);
+	    	activity.startActivity(eventIntent);
+
 			break;
 		case (VIEW_MEMBERS):
 			int eventid2 = 0;
