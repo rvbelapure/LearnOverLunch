@@ -103,6 +103,7 @@ public class AddEvent extends FragmentActivity {
 				String status = ConnectionHandler.sendString(Constants.ADD_EVENT, json.toString());
 				//String status = ConnectionHandler.sendString(Constants.ADD_EVENT, "{{\"event_date\": \"2013-02-14\", \"event_place\":\"Atlanta\", \"topic_name\":\"Physics\", \"topic_category\":\"Science\", \"max_allowed_members\":\"5\"}, \"event_members\":\"yatish\"}");
 				Toast.makeText(context, status, Toast.LENGTH_LONG).show();
+				activity.finish();
 			}
 		});
 	}
