@@ -223,7 +223,14 @@ public class EventActivity extends ListActivity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			activity.startActivity(new Intent(context, ListEventUsers.class));
+			
+			Intent eventIntent1 = new Intent(context, ListEventUsers.class);
+	    	Bundle extras1 = new Bundle();
+	    	extras1.putInt("global_event_index", value);
+	    	eventIntent1.putExtras(extras1);
+	    	activity.startActivity(eventIntent1);
+			
+			//activity.startActivity(new Intent(context, ListEventUsers.class));
 
 			break;
 		}
